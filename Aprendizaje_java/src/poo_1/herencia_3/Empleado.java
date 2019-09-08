@@ -12,7 +12,7 @@ import java.util.GregorianCalendar;
  *
  * @author Santiago
  */
-public class Empleado extends Persona{
+public class Empleado extends Persona implements Comparable, Bonus_empleados{
     //private final String nombre;
     private double sueldo;
     private static int RaID = 1;
@@ -70,5 +70,30 @@ public class Empleado extends Persona{
                 + "\nAlta del contrato: " + altaContrato;
     }
     
+    
+    @Override
+    public int compareTo(Object unObjeto){
+        
+        Empleado castEmpleado = (Empleado) unObjeto;
+        
+        if(this.sueldo < castEmpleado.sueldo ){
+            return -1;
+        }
+        
+        else if(this.sueldo > castEmpleado.sueldo ){
+            return 1;
+        }
+        
+        else{
+            return 0;
+        }
+        
+    }
+    
+    
+    @Override
+    public double crearBonificacion(double bonificacion){
+        return bonificacion+BONUS_BASE;
+    }
     
 }

@@ -5,6 +5,9 @@
  */
 package poo_1.herencia_3;
 
+import java.util.Arrays;
+
+
 /**
  *
  * @author Santiago
@@ -16,8 +19,21 @@ public class Uso_personal {
         empleado1 = new Empleado("Juan", 1000, 2019, 4, 7);
         
         Jefe jefe1;
-        jefe1 = new Jefe("Tom", 1500, 2019, 7, 3);
+        jefe1 = new Jefe("Tom", 1000, 2019, 7, 3);
         jefe1.makeIncentivo(550);
+        
+        
+        String desicion = jefe1.tomarDesiciones("Los empleados tendran mas dias de vacaciones");
+        System.out.println(desicion);
+        
+        double boni = jefe1.crearBonificacion(500);
+        double bonie= empleado1.crearBonificacion(500);
+        
+        System.out.println("el jefe " + jefe1.getNombre()
+                + " obtuvo bonificaion de: " + boni);
+        
+        System.out.println("el empleado " + empleado1.getNombre()
+                + " obtuvo bonificaion de: " + bonie);
         
         /*
         System.out.println("----- Personal -----");
@@ -40,18 +56,18 @@ public class Uso_personal {
 
         */
         
-        Persona[] arrayP = new Persona[6];
+        Empleado[] arrayP = new Empleado[5];
         
         arrayP[0] = empleado1;
         arrayP[1] = jefe1;   // Podemos ver el polimorfismo. Principio de sustitucion
         arrayP[2] = new Empleado("pepe", 500, 2020, 2, 3);
-        arrayP[3] = new Estudiante("Santiago", "Ingenieria en sistemas");
-        arrayP[4] = new Empleado("sebastian", 800, 2012, 8, 2);
-        arrayP[5] = new Jefe("Jei", 1111, 2019, 6, 2);
+        //arrayP[3] = new Estudiante("Santiago", "Ingenieria en sistemas");
+        arrayP[3] = new Empleado("sebastian", 800, 2012, 8, 2);
+        arrayP[4] = new Jefe("Jei", 1111, 2019, 6, 2);
         
         // se pueden refundir(casting) objetos pero debe tener sentido de esta forma
         
-        Jefe jefe2 = (Jefe)arrayP[5];
+        Jefe jefe2 = (Jefe)arrayP[4];
         
         /* Esto debido a que si queremos utilizar un metodo en la forma:
             arrayP[x].metodo si en esa posicion esta obviamente un jefe, a pesar
@@ -61,9 +77,27 @@ public class Uso_personal {
         
         jefe2.makeIncentivo(500200);
         
+        
+        
+        Arrays.sort(arrayP);
+        
         for(Persona e: arrayP){
             System.out.println("\n" + e.getDatos());
         }
+        
+        
+        /*
+        // instaceOf
+        
+        Empleado jefe_de_algo = new Jefe("Paco", 100, 1999, 2, 3);
+        
+        if(jefe_de_algo instanceof Object){
+            System.out.println("\n\n Es instancia de empleado");
+        }
+        else{
+            System.out.println("No es");
+        }
+        */
         
     }
 }

@@ -9,7 +9,7 @@ package poo_1.herencia_3;
  *
  * @author Santiago
  */
-public class Jefe extends Empleado {
+public class Jefe extends Empleado implements Jefe_interface {
     
     private double incentivo=0;
     
@@ -38,5 +38,17 @@ public class Jefe extends Empleado {
     }
     
     
+    @Override
+    public String tomarDesiciones(String desicion){
+        return "La directiva a tomado la desicion de: " + desicion;
+    } 
+    
+    
+    @Override
+    public double crearBonificacion(double bonificacion){
+        double prima = 1500;
+        
+        return prima + bonificacion + BONUS_BASE;
+    }
     
 }

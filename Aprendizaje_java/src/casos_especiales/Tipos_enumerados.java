@@ -32,8 +32,6 @@ public class Tipos_enumerados {
         
     }
 
-    public Tipos_enumerados() {
-    }
     
     
     public static void main(String[] args) {
