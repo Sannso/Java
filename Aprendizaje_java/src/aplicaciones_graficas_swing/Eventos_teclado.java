@@ -5,6 +5,7 @@
  */
 package aplicaciones_graficas_swing;
 
+
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -23,6 +24,7 @@ public class Eventos_teclado {
         newf.setVisible(true);
         newf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     } 
+    
 }
 
 class Ventanafd extends JFrame{
@@ -32,27 +34,34 @@ class Ventanafd extends JFrame{
         this.setLocation(230, 150);
         this.setTitle("Test de evento de teclado");
         
-        add(new Capateclado());
+        Capateclado laca;
+        laca = new Capateclado();
         
-        addKeyListener(new EventoTeclado());
+        add(laca);
+        
+        addKeyListener(laca);
+        
     }
     
     
+    private String palabra = "v";
     
-    protected class Capateclado extends JPanel{
+    protected class Capateclado extends JPanel implements KeyListener{
         
         @Override
         public void paintComponent(Graphics g){
             super.paintComponent(g);
+            
+            g.drawString(palabra, 100, 100);
         }
         
-    }
-    
-    protected class EventoTeclado implements KeyListener{
-
+        
         @Override
         public void keyTyped(KeyEvent ke) {
+            palabra = palabra + ke.getKeyChar();
+            System.out.println(palabra);
             System.out.println("Tecla presionada: " + ke.getKeyChar());
+            this.repaint();
         }
 
         @Override
@@ -67,4 +76,30 @@ class Ventanafd extends JFrame{
         
     }
     
+    
+    // LO AGREGUE EN LA CAPA PARA PODER REFRESCAR LA CAPA
+    // Y SE PUEDA VER LA ACCION
+    /*
+    protected class EventoTeclado implements KeyListener{
+
+        @Override
+        public void keyTyped(KeyEvent ke) {
+            palabra = palabra + ke.getKeyChar();
+            System.out.println(palabra);
+            System.out.println("Tecla presionada: " + ke.getKeyChar());
+            
+        }
+
+        @Override
+        public void keyPressed(KeyEvent ke) {
+            
+        }
+
+        @Override
+        public void keyReleased(KeyEvent ke) {
+            
+        }
+        
+    }
+    */
 }
