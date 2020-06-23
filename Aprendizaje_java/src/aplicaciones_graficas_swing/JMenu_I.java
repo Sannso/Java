@@ -5,6 +5,7 @@
  */
 package aplicaciones_graficas_swing;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -46,9 +47,10 @@ class JMenuPanel extends JPanel{
         barMenu.add(edicion);
         barMenu.add(herramientas);
         
+        ImageIcon iconoGuardados = new ImageIcon("src/aplicaciones_graficas_swing/gatoPeque.gif");
         
-        JMenuItem guardar = new JMenuItem("Guardar");
-        JMenuItem guardar_como = new JMenuItem("Guardar como");
+        JMenuItem guardar = new JMenuItem("Guardar", iconoGuardados);
+        JMenuItem guardar_como = new JMenuItem("Guardar como", iconoGuardados);
         archivo.add(guardar);
         archivo.add(guardar_como);
         

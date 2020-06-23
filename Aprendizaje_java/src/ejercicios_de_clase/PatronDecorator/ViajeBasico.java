@@ -1,0 +1,21 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ejercicios_de_clase.PatronDecorator;
+
+/**
+ *
+ * @author Santiago
+ */
+public class ViajeBasico implements Viaje{
+    @Override
+    public void inscribirViaje(AgenciaViajes agenciaViajes) {
+        System.out.println("-------------------------");
+        System.out.println("Viaje Basico inscrito correctamente!!");
+        System.out.println("Cliente: " + agenciaViajes.getClient());
+        agenciaViajes.setPrecioViaje(1000000);
+        System.out.println("Precio del viaje: " + agenciaViajes.getPrecioViaje());
+    }
+}
